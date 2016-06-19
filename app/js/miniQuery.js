@@ -18,6 +18,10 @@ class MiniQuery {
     DOM.removeClass(this.element, className);
     return this;
   }
+  append(htmlString){
+    DOM.append(this.element, htmlString);
+    return this;
+  }
   on(eventName, callBack){
     EventDispatcher.on(this.element, eventName, callBack);
     return this;
@@ -38,6 +42,11 @@ class MiniQuery {
             callBack();
         }
     }
+  }
+  static ajaxJson({url, type, success, fail}){
+      AjaxWrapper.request({url, type}).then(function(response){
+        return JSON.parse(response);
+      }).then(success).catch(fail);
   }
 }
 
@@ -81,6 +90,12 @@ class DOM {
     var elementArr = SweetSelector.select(element)
     for (var i = 0; i < elementArr.length; i++){
       elementArr[i].classList.remove(className);
+    }
+  }
+  static append(element, htmlString) {
+    var elementArr = SweetSelector.select(element)
+    for (var i = 0; i < elementArr.length; i++){
+      elementArr[i].innerHTML += htmlString;
     }
   }
 }
@@ -132,5 +147,6 @@ var $ = miniQuery = (function(MiniQuery, DOM, EventDispatcher, AjaxWrapper){
   mq.AjaxWrapper = AjaxWrapper;
   mq.ready = MiniQuery.ready;
   mq.ajax = MiniQuery.ajax;
+  mq.ajaxJson = MiniQuery.ajaxJson;
   return mq;
 })(MiniQuery, DOM, EventDispatcher, AjaxWrapper);
