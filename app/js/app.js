@@ -1,41 +1,39 @@
-document.addEventListener("DOMContentLoaded", function() {
+$.ready(function(){
 
-  SweetSelector.ajaxClone({
-    url: 'http://localhost:3000/teachers',
-    method: 'GET'
-  }).then(function(res) {
+  Cookies.set('name', 'value');
+  console.log(Cookies.get('name'));
 
-    var content = SweetSelector.select('#content');
-    res = JSON.parse(res);
-    var template = Handlebars.compile(SweetSelector.select('#teachers-template').innerHTML);
-    content.innerHTML = template({teachers: res});
-
-    EventDispatcher.on('a', 'click', function(e){
-      e.preventDefault();
-      var teacher = this.getAttribute('href').split('#')[1];
-      var url = 'http://localhost:3000/teachers/teacher?name=' + teacher;
-      console.log(url);
-
-      SweetSelector.ajaxClone({
-        url: url,
-        method: 'GET'
+  $.ajaxJson({
+    url: 'http://spa-badge-api.herokuapp.com/teachers',
+    type: 'GET',
+    success: function(response){
+      var template = Handlebars.compile(SweetSelector.select('#teachers-template')[0].innerHTML);
+      $('#content').append(template({teachers: response}));
+      $('.teacher-name').on('click', function(e){
+        e.preventDefault();
+        location.href = `#${e.target.getAttribute("teacherid")}`;
       })
-      .then(function(res) {
-        DOM.hide('#content');
-        var content = SweetSelector.select('#badges');
-        var data = JSON.parse(res);
-        var template = Handlebars.compile(SweetSelector.select('#badges-template').innerHTML);
-        content.innerHTML = template(data);
-        console.log(res);
-      })
-      .catch(function(err) {
-        console.log(err);
-      });
-    });
-  }).catch(function(err) {
-    console.log(err);
-  });
+    },
+    fail: function(error){
+      console.log(error);
+    }
+  })
+
+  window.onhashchange = function(){
+    $.ajaxJson({
+      url: 'http://spa-badge-api.herokuapp.com/teachers/' + location.hash.slice(1),
+      type: 'GET',
+      success: function(response){
+          $('#content').hide();
+          var template = Handlebars.compile(SweetSelector.select('#badges-template')[0].innerHTML);
+          $('#badges').append(template({name: response.name, badges: response.badges}));
+      },
+      fail: function(error){
+        console.log(error);
+      }
+    })
+  }
 
 
 
-});
+})
