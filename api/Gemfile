@@ -1,0 +1,11 @@
+source 'https://rubygems.org'
+gem 'rails', '4.2.5'
+gem 'rails-api'
+gem 'pg'
+gem 'faker'
+gem 'rails_12factor'
+gem 'rack-cors', :require => 'rack/cors'
+group :development, :test do
+  gem 'pry-rails'
+  gem 'byebug'
+end

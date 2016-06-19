@@ -1,0 +1,311 @@
+@import url("normalize.css");
+
+body {
+  background-color: #000;
+}
+
+h1, h2, p, div {
+  color: white;
+}
+
+a {
+  text-decoration: none;
+  color: dodgerblue;
+  font-size: 20px;
+}
+
+a:visited {
+  color: purple;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.logo h1 {
+  font-family: 'Courier New', cursive;
+  text-align: left;
+  padding: 0px 10px;
+  margin: 10px 0px 5px 0px;
+  font-size: 50px;
+  color: firebrick;
+}
+
+.container {
+  margin: 20px auto;
+  width: 400;
+  padding: 0px 20px 20px 20px;
+  border: 0px;
+}
+
+.container h1 {
+  font-family: 'Courier New', cursive;
+  padding: 0px 10px;
+  margin: 10px 0px 5px 0px;
+}
+
+th {
+  text-align: left;
+}
+
+.show-user h1 {
+  font-family: 'Courier New', cursive;
+  text-align: left;
+  padding: 0px 10px;
+  margin: 10px 0px 5px 0px;
+  font-size: 50px;
+}
+
+.show-user h2 {
+  text-align: left;
+  font-family: 'Oswald', 'sans-serif';
+  padding: 0px 20px;
+  margin: 5px 0px 10px 0px;
+}
+
+.show-user .padded {
+  padding: 3px 30px;
+}
+
+
+/* SLOGAN DISPLAY */
+.slogan-list {
+  width: 400px;
+}
+
+.slogan {
+  padding: 3px 30px;
+  width: 600px;
+  overflow: hidden;
+}
+
+.slogan .body {
+  font-family: 'Oswald', 'sans-serif';
+  font-size: 18px;
+  padding-right:25px;
+  float:left;
+  font-weight:bold
+ }
+
+.vote-on, .vote-off {
+  float:left;
+}
+
+.slogan button {
+  padding:1px;
+  vertical-align:bottom;
+  border: 0;
+  background: transparent;
+  outline: none;
+}
+
+.slogan .points {
+  padding:5px;
+  float:left;
+  font-size:11px;
+}
+
+/* SLOGAN SUBMISSION */
+.add-badge {
+  width:600px;
+  overflow:hidden;
+  margin-top: 5px;
+  clear:right;
+  padding: 0px;
+}
+
+.add-badge form{
+}
+
+.add-badge h3{
+  display: inline;
+  font-family:'Oswald','sans-serif';
+  font-size:22px;
+  float:left;
+  margin: 2px 10px 0px 20px;
+}
+
+.submit-slogan-button {
+  max-width:25px;
+  max-height:25px;
+}
+
+.add-badge input[type="image"] {
+  border: 0;
+  width: 25px;
+  height: 25px;
+  padding-top: 6px;
+  padding-left: 2px;
+  vertical-align: bottom;
+  outline: none;
+}
+
+.add-badge button {
+  padding: 1px;
+  vertical-align:bottom;
+  border: 0;
+  background: transparent;
+}
+
+
+/* NAV */
+.nav {
+  font-family:'Oswald','sans-serif';
+  font-weight: bold;
+  width:100%;
+  display: inline;
+  overflow:hidden;
+  margin-top:10px;
+  margin-left: 10px;
+  font-size:18px;
+  padding:3px;
+  float:left;
+  vertical-align:center;
+}
+
+.nav .nav-link {
+  display: inline;
+  padding: 10px;
+}
+
+.nav .nav-link a {
+  text-decoration: none;
+}
+
+.nav .pipe-separator {
+  display: inline;
+  padding: 3px;
+}
+
+/*show.css*/
+
+.show-user h1 {
+  font-family: 'Black Ops One', cursive;
+  text-align: left;
+  padding: 0px 10px;
+  margin: 10px 0px 5px 0px;
+  font-size: 50px;
+}
+
+.show-user h2 {
+  text-align: left;
+  font-family: 'Oswald', 'sans-serif';
+  padding: 0px 20px;
+  margin: 5px 0px 10px 0px;
+}
+
+.show-user .padded {
+  padding: 3px 30px;
+}
+
+
+/* SLOGAN DISPLAY */
+.slogan-list {
+  width: 400px;
+}
+
+.slogan {
+  padding: 3px 30px;
+  width: 600px;
+  overflow: hidden;
+}
+
+.slogan .body {
+  font-family: 'Oswald', 'sans-serif';
+  font-size: 18px;
+  padding-right:25px;
+  float:left;
+  font-weight:bold
+ }
+
+.vote-on, .vote-off {
+  float:left;
+}
+
+.slogan button {
+  padding:1px;
+  vertical-align:bottom;
+  border: 0;
+  background: transparent;
+  outline: none;
+}
+
+.slogan .points {
+  padding:5px;
+  float:left;
+  font-size:11px;
+}
+
+/* SLOGAN SUBMISSION */
+.add-badge {
+  width:600px;
+  overflow:hidden;
+  margin-top: 5px;
+  clear:right;
+  padding: 0px;
+}
+
+.add-badge form{
+}
+
+.add-badge h3{
+  display: inline;
+  font-family:'Oswald','sans-serif';
+  font-size:22px;
+  float:left;
+  margin: 2px 10px 0px 20px;
+}
+
+.submit-slogan-button {
+  max-width:25px;
+  max-height:25px;
+}
+
+.add-badge input[type="image"] {
+  border: 0;
+  width: 25px;
+  height: 25px;
+  padding-top: 6px;
+  padding-left: 2px;
+  vertical-align: bottom;
+  outline: none;
+}
+
+.add-badge button {
+  padding: 1px;
+  vertical-align:bottom;
+  border: 0;
+  background: transparent;
+}
+
+
+/* NAV */
+.nav {
+  font-family:'Oswald','sans-serif';
+  font-weight: bold;
+  width:100%;
+  display: inline;
+  overflow:hidden;
+  margin-top:10px;
+  margin-left: 10px;
+  font-size:18px;
+  padding:3px;
+  float:left;
+  vertical-align:center;
+}
+
+.nav .nav-link {
+  display: inline;
+  padding: 10px;
+}
+
+.nav .nav-link a {
+  text-decoration: none;
+}
+
+.nav .pipe-separator {
+  display: inline;
+  padding: 3px;
+}
+
+
