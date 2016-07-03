@@ -4,7 +4,7 @@ $.ready(function(){
   console.log(Cookies.get('name'));
 
   $.ajaxJson({
-    url: 'http://spa-badge-api.herokuapp.com/teachers',
+    url: 'http://localhost:3000/teachers/',
     type: 'GET',
     success: function(response){
       var template = Handlebars.compile(SweetSelector.select('#teachers-template')[0].innerHTML);
@@ -20,8 +20,27 @@ $.ready(function(){
   })
 
   window.onhashchange = function(){
+    var teacherID = location.hash.slice(1);
+
     $.ajaxJson({
-      url: 'http://spa-badge-api.herokuapp.com/teachers/' + location.hash.slice(1),
+      url: 'http://localhost:3000/teachers/' + teacherID,
+      type: 'GET',
+      success: function(response){
+          $('#content').hide();
+          var template = Handlebars.compile(SweetSelector.select('#badges-template')[0].innerHTML);
+          $('#badges').append(template({name: response.name, badges: response.badges}));
+      },
+      fail: function(error){
+        console.log(error);
+      }
+    })
+  }
+
+  window.onhashchange = function(){
+    var teacherID = location.hash.slice(1);
+
+    $.ajaxJson({
+      url: 'http://localhost:3000/teachers/' + teacherID,
       type: 'GET',
       success: function(response){
           $('#content').hide();
