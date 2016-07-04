@@ -43,10 +43,10 @@ class MiniQuery {
         }
     }
   }
-  static ajaxJson({url, type, success, fail}){
-      AjaxWrapper.request({url, type}).then(function(response){
+  static ajaxJson(parameters){
+      return AjaxWrapper.request(parameters).then(function(response){
         return JSON.parse(response);
-      }).then(success).catch(fail);
+      });
   }
 }
 
@@ -131,7 +131,14 @@ class AjaxWrapper {
           //return the error code
       }
       xhr.open(properties.type, properties.url);
-      xhr.send();
+      var data;
+      if (properties.data) {
+        data = new FormData();
+        Object.keys(properties.data).forEach(function(key){
+          data.append(key, properties.data[key]);
+        })
+      }
+      xhr.send(data);
     })
   }
 }

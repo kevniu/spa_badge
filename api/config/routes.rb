@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   resources :teachers, except: [:show, :new, :edit]
 
   get 'teachers/:id', to: 'teachers#show'
+
+  post 'badges', to: 'badges#create'
+  post 'badges/:id', to: 'badges#vote'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
