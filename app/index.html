@@ -15,7 +15,6 @@
     <h1> SF Teachers </h1>
   </div>
   <div id="content"></div>
-  <div id="badges"></div>
   <script id="teachers-template" type="text/x-handlebars-template">
       <ul>
           {{#teachers}}
@@ -29,12 +28,16 @@
     <h1>{{name}}'s badges</h1>
     <ul>
       {{#badges}}
-      <li>{{phrase}}</li>
+      <li badgeid="{{id}}">{{title}}
+        <a class="votebutton" votetype="up" href="#"><img src="./img/upvote.gif"></a>
+        <a class="votebutton" votetype="down" href="#"><img src="./img/downvote.gif"></a>
+        {{votes}}
+      </li>
       {{/badges}}
     </ul>
     <form>
-      <input type='text' > add a badge </input>
-      <input type="submit" value="Submit">
+      <input id="addbadge-btn" type='text' > add a badge </input>
+      <input id="submit-btn" type="submit" value="Submit">
     </form>
   </script>
   </div>

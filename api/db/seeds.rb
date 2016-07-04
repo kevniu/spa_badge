@@ -16,5 +16,5 @@ Teacher.create(name: 'Shambhavi', votes: 0)
 Teacher.create(name: 'Walker', votes: 0)
 
 40.times do
-  Badge.create(title: 'Most likely to ' + Faker::Superhero.power, teacher_id: rand(1..8))
+  Badge.create(title: 'Most likely to ' + Faker::Superhero.power, teacher_id: rand(1..8), votes: 0)
 end
